@@ -345,6 +345,9 @@ if (! function_exists('__')) {
      */
     function __($key, $replace = [], $locale = null)
     {
+        if (!is_array($replace)) {
+            $replace = [$replace];
+        }
         return app('translator')->getFromJson($key, $replace, $locale);
     }
 }
